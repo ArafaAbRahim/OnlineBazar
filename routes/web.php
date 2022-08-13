@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//backend route
+Route::get('/admins', [AdminController::class, 'index']);
+Route::get('/dashboard', [AdminController::class, 'dashboard']);
+
+//category
+//Route::resource('/categories/', CategoryController::class);
+
+//frontend route
+Route::get('/', [HomeController::class, 'index']);
