@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +26,12 @@ Route::get('/dashboard', [SuperAdminController::class, 'dashboard']);
 Route::get('/logout', [SuperAdminController::class, 'logout']);
 
 //category
-//Route::resource('/categories/', CategoryController::class);
+Route::resource('/categories', CategoryController::class);
+Route::get('/cat-status{category}', [CategoryController::class, 'change_status']);
+
+//sub category
+Route::resource('/sub-categories', SubCategoryController::class);
+Route::get('/subcat-status{subcategory}', [SubCategoryController::class, 'change_status']);
 
 //frontend route
 Route::get('/', [HomeController::class, 'index']);
