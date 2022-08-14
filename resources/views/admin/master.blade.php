@@ -91,11 +91,11 @@
             <span class="dropdown-item dropdown-header">Account Settings</span>
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item">
-              <i class="fas fa-user mr-2"></i> Profile              
+              <i class="fas fa-user mr-2"></i> Profile
             </a>
             <div class="dropdown-divider"></div>
             <a href="{{url('/logout')}}" class="dropdown-item">
-              <i class="fas fa-arrow-alt-circle-up mr-2"></i> Logout              
+              <i class="fas fa-arrow-alt-circle-up mr-2"></i> Logout
             </a>
 
         </li>
@@ -133,53 +133,58 @@
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                  Dashboard                  
-                </p>
-              </a>            
-            </li>
-            <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  Widgets
-                  <span class="right badge badge-danger">New</span>
+                  Dashboard
                 </p>
               </a>
             </li>
 
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
+                <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Charts
+                  Category
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ChartJS</p>
+                  <a href="{{url('/categories/create')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-success"></i>
+                    <p>Add Category</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Flot</p>
+                  <a href="{{url('/categories')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Category List</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Sub Category
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{url('/sub-categories/create')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-danger"></i>
+                    <p>Add Sub Category</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/inline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Inline</p>
+                  <a href="{{url('/sub-categories')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Sub Category List</p>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a href="pages/charts/uplot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>uPlot</p>
-                  </a>
-                </li>
+
               </ul>
             </li>
 
@@ -243,6 +248,12 @@
   <script src="{{asset('admin/dist/js/demo.js')}}"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
+
+  <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+
+  <script>
+    CKEDITOR.replace('editor1');
+  </script>
 </body>
 
 </html>
