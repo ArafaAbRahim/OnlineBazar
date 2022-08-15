@@ -17,12 +17,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Category Form</h1>
+                <h1>Color Form</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Category Form</li>
+                    <li class="breadcrumb-item active">Color Form</li>
                 </ol>
             </div>
         </div>
@@ -43,44 +43,30 @@
                 ?>
             </p>
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-danger">
                 <div class="card-header">
-                    <h3 class="card-title">Add Category</h3>
+                    <h3 class="card-title">Add Colors</h3>
                 </div>
 
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal" action="{{url('/categories/')}}" method="post" enctype="multipart/form-data">
+                <form class="form-horizontal" action="{{url('/colors/')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
+
+                            <div class="col-md-3"></div>
                             <div class="col-md-6">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Name *</label>
-                                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter Name" required>
+                                        <label for="exampleInputEmail1">Colors *</label>
+                                        <input type="text" name="color" class="form-control" id="input" data-role="tagsinput" placeholder="Enter Colors" required >
                                     </div>
-                                </div>
 
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">File input</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
+                            
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Description</label>
-                                    <textarea name="description" id="editor1"></textarea>
-                                </div>
-                            </div>
-
+                            <div class="col-md-3"></div>
                         </div>
                     </div>
                     <!-- /.card-body -->

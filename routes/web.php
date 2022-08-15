@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +36,22 @@ Route::get('/cat-status{category}', [CategoryController::class, 'change_status']
 //sub category
 Route::resource('/sub-categories', SubCategoryController::class);
 Route::get('/subcat-status{subcategory}', [SubCategoryController::class, 'change_status']);
+
+//brand
+Route::resource('/brands', BrandController::class);
+Route::get('/brand-status{brand}', [BrandController::class, 'change_status']);
+
+//unit
+Route::resource('/units', UnitController::class);
+Route::get('/unit-status{unit}', [UnitController::class, 'change_status']);
+
+//size
+Route::resource('/sizes', SizeController::class);
+Route::get('/size-status{size}', [SizeController::class, 'change_status']);
+
+//color
+Route::resource('/colors', ColorController::class);
+Route::get('/color-status{color}', [ColorController::class, 'change_status']);
 
 //frontend route
 Route::get('/', [HomeController::class, 'index']);

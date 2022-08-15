@@ -26,7 +26,22 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
+
+ 
 </head>
+
+<style type="text/css">
+      .bootstrap-tagsinput .tag {
+         margin-right: 2px;
+         color: white !important;
+         background-color: gray;
+         padding: .2em .6em .3em;
+         font-size: 100%;
+         font-weight: 700;
+         vertical-align: baseline;
+         border-radius: .25em;
+      }
+   </style>
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -184,11 +199,109 @@
                     <p>Sub Category List</p>
                   </a>
                 </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-columns"></i>
+                <p>
+                  Brand
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{url('/brands/create')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-purple"></i>
+                    <p>Add Brand</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{url('/brands')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Brand List</p>
+                  </a>
+                </li>
 
               </ul>
             </li>
 
-          </ul>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-balance-scale"></i>
+                <p>
+                  Unit
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{url('/units/create')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-purple"></i>
+                    <p>Add Unit</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{url('/units')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Unit List</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-cubes"></i>
+                <p>
+                  Size
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{url('/sizes/create')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-purple"></i>
+                    <p>Add Size</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{url('/sizes')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Size List</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-broom"></i>
+                <p>
+                  Color
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{url('/colors/create')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-purple"></i>
+                    <p>Add Color</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{url('/colors')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Color List</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
         </nav>
         <!-- /.sidebar-menu -->
       </div>
@@ -251,9 +364,35 @@
 
   <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
 
+  
+  <script src='https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'></script>
+
   <script>
     CKEDITOR.replace('editor1');
   </script>
+
+<script>
+      $(function () {
+         $('input').on('change', function (event) {
+
+            var $element = $(event.target);
+            var $container = $element.closest('.example');
+
+            if (!$element.data('tagsinput'))
+               return;
+
+            var val = $element.val();
+            if (val === null)
+               val = "null";
+            var items = $element.tagsinput('items');
+
+            $('code', $('pre.val', $container)).html(($.isArray(val) ? JSON.stringify(val) : "\"" + val.replace('"', '\\"') + "\""));
+            $('code', $('pre.items', $container)).html(JSON.stringify($element.tagsinput('items')));
+
+
+         }).trigger('change');
+      });
+   </script>
 </body>
 
 </html>

@@ -101,7 +101,7 @@ class CategoryController extends Controller
         ]);
 
         if($update)
-            return redirect('/categories')->with('message', 'Category updated successfully!');
+        return redirect('/categories')->with('message', 'Category updated successfully!');
     }
 
     /**
