@@ -5,6 +5,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\SuperAdminController;
@@ -52,6 +53,10 @@ Route::get('/size-status{size}', [SizeController::class, 'change_status']);
 //color
 Route::resource('/colors', ColorController::class);
 Route::get('/color-status{color}', [ColorController::class, 'change_status']);
+
+//product
+Route::resource('/products', ProductController::class);
+Route::get('/product-status{product}', [ProductController::class, 'change_status']);
 
 //frontend route
 Route::get('/', [HomeController::class, 'index']);

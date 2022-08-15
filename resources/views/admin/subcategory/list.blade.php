@@ -68,11 +68,11 @@
                                         <div class="col-md-2">
                                             @if($subcategory->status == 1)
                                             <a class="btn btn-success" href="{{url('/subcat-status'.$subcategory->id)}}">
-                                                <i class="far fa-hand-point-down"></i>
+                                                <i class="far fa-thumbs-down"></i>
                                             </a>
                                             @else
                                             <a class="btn btn-danger" href="{{url('/subcat-status'.$subcategory->id)}}">
-                                                <i class="far fa-hand-point-right"></i>
+                                                <i class="far fa-thumbs-up"></i>
                                             </a>
                                             @endif
                                         </div>

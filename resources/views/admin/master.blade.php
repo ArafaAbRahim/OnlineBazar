@@ -155,6 +155,31 @@
 
             <li class="nav-item">
               <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-shopping-basket"></i>
+                <p>
+                  Product
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{url('/products/create')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-green"></i>
+                    <p>Add Product</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{url('/products')}}" class="nav-link">
+                    <i class="far fa-circle nav-icon text-info"></i>
+                    <p>Product List</p>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
                   Category
@@ -371,28 +396,7 @@
     CKEDITOR.replace('editor1');
   </script>
 
-<script>
-      $(function () {
-         $('input').on('change', function (event) {
-
-            var $element = $(event.target);
-            var $container = $element.closest('.example');
-
-            if (!$element.data('tagsinput'))
-               return;
-
-            var val = $element.val();
-            if (val === null)
-               val = "null";
-            var items = $element.tagsinput('items');
-
-            $('code', $('pre.val', $container)).html(($.isArray(val) ? JSON.stringify(val) : "\"" + val.replace('"', '\\"') + "\""));
-            $('code', $('pre.items', $container)).html(JSON.stringify($element.tagsinput('items')));
-
-
-         }).trigger('change');
-      });
-   </script>
+ 
 </body>
 
 </html>
