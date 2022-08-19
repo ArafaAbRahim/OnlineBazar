@@ -7,8 +7,16 @@
                 <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
             </ul>
-            <ul class="header-links pull-right">                
-                <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+            <ul class="header-links pull-right"> 
+                @php
+                    $customer_id = Session::get('id')
+                @endphp
+
+                @if($customer_id != NULL)
+                    <li><a href="{{url('/customer-logout')}}"><i class="fa fa-user-o"></i> Logout</a></li>
+                @else
+                    <li><a href="{{url('/user-login')}}"><i class="fa fa-user-o"></i> Login</a></li>
+                @endif
             </ul>
         </div>
     </div>
@@ -96,8 +104,16 @@
                                     <h5>SUBTOTAL: &#2547; {{Cart::getTotal()}}</h5>
                                 </div>
                                 <div class="cart-btns">
-                                    <a href="#">View Cart</a>
+                                    <a href="">View Cart</a>
+                                    @php
+                                        $customer_id = Session::get('id')
+                                    @endphp
+                                    @if($customer_id != NULL)
                                     <a href="{{url('/checkout')}}">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                    @else
+                                    <a href="{{url('/user-login')}}">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>

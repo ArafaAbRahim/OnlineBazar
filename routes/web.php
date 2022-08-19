@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
@@ -74,3 +75,9 @@ Route::get('/delete-cart/{id}', [CartController::class, 'delete_cart']);
 
 //checkout
 Route::get('/checkout', [CheckoutController::class, 'index']);
+Route::get('/user-login', [CheckoutController::class, 'login_check']);
+
+//customer login & logout
+Route::post('/customer-login', [CustomerController::class, 'login']);
+Route::post('/customer-registration', [CustomerController::class, 'registration']);
+Route::get('/customer-logout', [CustomerController::class, 'logout']);
