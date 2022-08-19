@@ -60,3 +60,4 @@ Route::get('/product-status{product}', [ProductController::class, 'change_status
 
 //frontend route
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/view-details{id}', [HomeController::class, 'view_details']);
