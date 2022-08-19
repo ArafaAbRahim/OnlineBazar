@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -64,3 +66,11 @@ Route::get('/view-details/{id}', [HomeController::class, 'view_details']);
 Route::get('/product-by-category/{id}', [HomeController::class, 'product_by_category']);
 Route::get('/product-by-subcat/{id}', [HomeController::class, 'product_by_subcategory']);
 Route::get('/product-by-brand/{id}', [HomeController::class, 'product_by_brand']);
+
+
+//cart
+Route::post('/add-to-cart', [CartController::class, 'add_to_cart']);
+Route::get('/delete-cart/{id}', [CartController::class, 'delete_cart']);
+
+//checkout
+Route::get('/checkout', [CheckoutController::class, 'index']);

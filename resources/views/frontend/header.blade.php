@@ -61,43 +61,43 @@
                         <!-- /Wishlist -->
 
                         <!-- Cart -->
+                        @php 
+                            $cart_array = cartArray();
+                        @endphp                        
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>Your Cart</span>
-                                <div class="qty">3</div>
+                                <div class="qty"><?= count($cart_array) ?></div>
                             </a>
                             <div class="cart-dropdown">
                                 <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product01.png" alt="">
+                                    @foreach($cart_array as $add_cart)
+                                        @php                                            
+                                            $images = $add_cart['attributes'][0];
+                                            $images = explode('|', $images);
+                                            $images = $images[0];
+                                        @endphp
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="{{asset('/productImage/'.$images)}}" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">{{$add_cart['name']}}</a></h3>
+                                                <h4 class="product-price"><span class="qty">{{$add_cart['quantity']}}</span>&#2547;{{$add_cart['price']}}</h4>
+                                            </div>
+                                            <a href="{{url('/delete-cart/'.$add_cart['id'])}}" class="delete"><i class="fa fa-close"></i></a>
                                         </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
-
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product02.png" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
+                                    @endforeach
+                                    
                                 </div>
                                 <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
+                                    <small><?= count($cart_array) ?> Item(s) selected</small>
+                                    <h5>SUBTOTAL: &#2547; {{Cart::getTotal()}}</h5>
                                 </div>
                                 <div class="cart-btns">
                                     <a href="#">View Cart</a>
-                                    <a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="{{url('/checkout')}}">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
