@@ -47,7 +47,7 @@
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
 								@foreach($product_cat as $category)
-								<li><a data-toggle="tab" href="#tab1">{{$category->name}}</a></li>
+								<li><a href="{{url('/product-by-category/'.$category->id)}}">{{$category->name}}</a></li>
 								@endforeach
 								
 							</ul>
@@ -75,7 +75,7 @@
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">
-											<a href="{{url('/view-details'.$product->id)}}">
+											<a href="{{url('/view-details/'.$product->id)}}">
 												<img src="{{asset('/productImage/'.$images)}}" alt="" style="height: 256px; width: 256px;" >
 												<div class="product-label">
 													<span class="sale">-30%</span>
@@ -84,9 +84,9 @@
 											</a>
 										</div>
 										<div class="product-body">
-											<p class="product-category"><a href="{{url('/view-details'.$product->id)}}">{{$product->category->name}}</a></p>
-											<h3 class="product-name"><a href="{{url('/view-details'.$product->id)}}">{{$product->name}}</a></h3>
-											<h4 class="product-price"><a href="{{url('/view-details'.$product->id)}}">&#2547;{{$product->price}} <del class="product-old-price">&#2547;{{$product->price}}</del></a></h4>
+											<p class="product-category"><a href="{{url('/view-details/'.$product->id)}}">{{$product->category->name}}</a></p>
+											<h3 class="product-name"><a href="{{url('/view-details/'.$product->id)}}">{{$product->name}}</a></h3>
+											<h4 class="product-price"><a href="{{url('/view-details/'.$product->id)}}">&#2547;{{$product->price}} <del class="product-old-price">&#2547;{{$product->price}}</del></a></h4>
 											<div class="product-rating">
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star"></i>
@@ -181,7 +181,7 @@
 						<div class="section-nav">
 							<ul class="section-tab-nav tab-nav">
 								@foreach($product_cat as $category)
-								<li><a data-toggle="tab" href="#tab1">{{$category->name}}</a></li>
+								<li><a href="{{url('/product-by-category/'.$category->id)}}">{{$category->name}}</a></li>
 								@endforeach
 							</ul>
 						</div>

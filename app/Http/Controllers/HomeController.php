@@ -42,4 +42,37 @@ class HomeController extends Controller
         return view('frontend.pages.view_details', compact('categories', 'subcategories', 'brands', 'units', 'sizes', 'colors', 'product', 'related_products'));
         
     }
+
+    public function product_by_category($id){
+
+        $categories = Category::where('status', 1)->get();;
+        $subcategories = SubCategory::all();       
+        $brands = Brand::all();
+        $products = Product::where('status', 1)->where('cat_id', $id)->limit(12)->get();
+
+        return view('frontend.pages.product_by_cat', compact('categories', 'subcategories', 'brands', 'products'));
+
+    }
+
+    public function product_by_subcategory($id){
+
+        $categories = Category::where('status', 1)->get();;
+        $subcategories = SubCategory::all();       
+        $brands = Brand::all();
+        $products = Product::where('status', 1)->where('subcat_id', $id)->limit(12)->get();
+
+        return view('frontend.pages.product_by_subcat', compact('categories', 'subcategories', 'brands', 'products'));
+
+    }
+
+    public function product_by_brand($id){
+
+        $categories = Category::where('status', 1)->get();;
+        $subcategories = SubCategory::all();       
+        $brands = Brand::all();
+        $products = Product::where('status', 1)->where('brand_id', $id)->limit(12)->get();
+
+        return view('frontend.pages.product_by_brand', compact('categories', 'subcategories', 'brands', 'products'));
+
+    }
 }

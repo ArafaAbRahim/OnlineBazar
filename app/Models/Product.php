@@ -35,4 +35,19 @@ class Product extends Model
     public function color(){
         return $this->belongsTo(Color::class, 'color_id');
     }
+
+    public static function catProductCount($cat_id){
+        $catCount = Product::where('cat_id',$cat_id)->where('status', 1)->count();
+        return $catCount;
+    }
+
+    public static function subcatProductCount($subcat_id){
+        $subcatCount = Product::where('subcat_id',$subcat_id)->where('status', 1)->count();
+        return $subcatCount;
+    }
+
+    public static function brandProductCount($brand_id){
+        $brandProductCount = Product::where('brand_id',$brand_id)->where('status', 1)->count();
+        return $brandProductCount;
+    }
 }
