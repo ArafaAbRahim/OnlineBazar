@@ -76,6 +76,9 @@ Route::get('/delete-cart/{id}', [CartController::class, 'delete_cart']);
 //checkout
 Route::get('/checkout', [CheckoutController::class, 'index']);
 Route::get('/user-login', [CheckoutController::class, 'login_check']);
+Route::post('/shipping-info', [CheckoutController::class, 'shipping_info']);
+Route::get('/payment', [CheckoutController::class, 'payment']);
+Route::post('/order-place', [CheckoutController::class, 'order_place']);
 
 //customer login & logout
 Route::post('/customer-login', [CustomerController::class, 'login']);
