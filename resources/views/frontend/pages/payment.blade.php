@@ -84,10 +84,10 @@
                             </div>
                         </div>
                         <div class="input-radio">
-                            <input type="radio" name="payment" id="payment-3" value="nogod">
+                            <input type="radio" name="payment" id="payment-3" value="nagad">
                             <label for="payment-3">
                                 <span></span>
-                                Nogod
+                                Nagad
                             </label>
                             <div class="caption">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

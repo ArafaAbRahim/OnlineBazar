@@ -84,7 +84,7 @@ class CheckoutController extends Controller
             Cart::clear();
             return view('frontend.pages.success_message');
         }
-        elseif($payment_method == 'nogod'){
+        elseif($payment_method == 'nagad'){
             Cart::clear();
             return view('frontend.pages.success_message');
         }

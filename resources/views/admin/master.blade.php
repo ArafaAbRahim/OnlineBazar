@@ -179,6 +179,13 @@
             </li>
 
             <li class="nav-item">
+              <a href="{{url('/manage-order')}}" class="nav-link">
+                <i class="fas fa-cart-arrow-down nav-icon "></i>
+                <p>Manage Order</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
@@ -205,7 +212,7 @@
 
             <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
+                <i class="nav-icon 	fab fa-centos"></i>
                 <p>
                   Sub Category
                   <i class="right fas fa-angle-left"></i>
