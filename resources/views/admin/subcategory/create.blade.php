@@ -43,9 +43,12 @@
                 ?>
             </p>
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-danger">
                 <div class="card-header">
                     <h3 class="card-title">Add Sub Category</h3>
+                    <div class="card-tools pull-right">
+                        <a href="{{url('/sub-categories')}}" type="submit" class="btn bg-green btn-sm" style="color: white;"> <i class="fa fa-list"></i> Sub Category List </a>
+                    </div>
                 </div>
       
                 <!-- /.card-header -->

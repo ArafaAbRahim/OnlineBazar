@@ -34,6 +34,9 @@
             <div class="card card-danger">
                 <div class="card-header">
                     <h3 class="card-title">Sizes List</h3>
+                    <div class="card-tools pull-right">
+                        <a href="{{url('/sizes/create')}}" type="submit" class="btn bg-green btn-sm" style="color: white;"> <i class="fa fa-plus"></i> Size Add </a>
+                    </div>
                 </div>
 
                 <div class="card-body">

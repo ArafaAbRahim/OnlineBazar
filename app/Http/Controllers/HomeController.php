@@ -10,6 +10,7 @@ use App\Models\Size;
 use App\Models\SubCategory;
 use App\Models\Unit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,21 @@ class HomeController extends Controller
         $products = Product::where('status', 1)->latest()->limit(12)->get();
         $product_cat = Category::where('status', 1)->latest()->limit(3)->get();
 
-        return view('frontend.welcome', compact('categories', 'subcategories', 'brands', 'units', 'sizes', 'colors', 'products', 'product_cat'));
+        $top_sales = DB::table('products')
+            ->leftJoin('order_details','products.id','=','order_details.product_id')
+            ->selectRaw('products.id, SUM(order_details.product_sales_quantity) as total')
+            ->groupBy('products.id')
+            ->orderBy('total','desc')
+            ->take(8)
+            ->get();
+        $topProducts = [];
+        foreach ($top_sales as $s){
+            $p = Product::findOrFail($s->id);
+            $p->totalQty = $s->total;
+            $topProducts[] = $p;
+        }
+
+        return view('frontend.welcome', compact('categories', 'subcategories', 'brands', 'units', 'sizes', 'colors', 'products', 'product_cat', 'topProducts'));
     }
 
     public function view_details($id){

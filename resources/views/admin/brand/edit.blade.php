@@ -46,6 +46,9 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Edit Brand</h3>
+                    <div class="card-tools pull-right">
+                        <a href="{{url('/brands')}}" type="submit" class="btn bg-green btn-sm" style="color: white;"> <i class="fa fa-list"></i> Brand List </a>
+                    </div>
                 </div>
 
                 <!-- /.card-header -->

@@ -34,6 +34,9 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Brand List</h3>
+                    <div class="card-tools pull-right">
+                        <a href="{{url('/brands/create')}}" type="submit" class="btn bg-green btn-sm" style="color: white;"> <i class="fa fa-plus"></i> Brand Add </a>
+                    </div>
                 </div>
 
                 <div class="card-body">

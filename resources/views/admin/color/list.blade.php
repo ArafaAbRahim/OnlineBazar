@@ -34,6 +34,9 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Colors List</h3>
+                    <div class="card-tools pull-right">
+                        <a href="{{url('/colors/create')}}" type="submit" class="btn bg-green btn-sm" style="color: white;"> <i class="fa fa-plus"></i> Color Add </a>
+                    </div>
                 </div>
 
                 <div class="card-body">
@@ -53,7 +56,7 @@
                                 <td>{{$color->id}}</td>   
                                 <td>
                                     @foreach(Json_decode($color->color) as $colors)
-                                        <ul class="span3">{{$colors}}</ul>
+                                       {{$colors}}
                                     @endforeach
                                 </td>                                                                    
                                 <td>

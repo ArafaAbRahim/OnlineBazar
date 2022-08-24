@@ -46,6 +46,9 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Edit Sizes</h3>
+                    <div class="card-tools pull-right">
+                        <a href="{{url('/sizes')}}" type="submit" class="btn bg-green btn-sm" style="color: white;"> <i class="fa fa-list"></i> Size List </a>
+                    </div>
                 </div>
 
                 <!-- /.card-header -->

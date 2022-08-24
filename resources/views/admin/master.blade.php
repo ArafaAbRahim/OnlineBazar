@@ -395,7 +395,6 @@
   <script src="{{asset('admin/dist/js/pages/dashboard.js')}}"></script>
 
   <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
-
   
   <script src='https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js'></script>
 

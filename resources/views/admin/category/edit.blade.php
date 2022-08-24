@@ -36,6 +36,9 @@
             <div class="card card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Edit Category</h3>
+                    <div class="card-tools pull-right">
+                        <a href="{{url('/categories')}}" type="submit" class="btn bg-green btn-sm" style="color: white;"> <i class="fa fa-list"></i> Category List </a>
+                    </div>
                 </div>
 
                 <p class="alert-success">
