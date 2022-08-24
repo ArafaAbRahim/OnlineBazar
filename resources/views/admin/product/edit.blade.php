@@ -78,7 +78,7 @@
                                         <select name="category" class="form-control select2" style="width: 100%;">
                                             <option value="">Select Category</option>
                                             @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            <option value="{{$category->id}}" {{$product->cat_id == $category->id ? 'selected' : ''}} >{{$category->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -90,7 +90,7 @@
                                         <select name="subcategory" class="form-control select2" style="width: 100%;">
                                             <option value="">Select Sub Category</option>
                                             @foreach($subcategories as $subcategory)
-                                            <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                                            <option value="{{$subcategory->id}}" {{ $product->subcat_id == $subcategory->id ? 'selected' : ''}} >{{$subcategory->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -102,7 +102,7 @@
                                         <select name="brand" class="form-control select2" style="width: 100%;">
                                             <option value="">Select Brand</option>
                                             @foreach($brands as $brand)
-                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                            <option value="{{$brand->id}}" {{$product->brand_id == $brand->id ? 'selected' : ''}}>{{$brand->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -113,7 +113,7 @@
                                         <select name="size" class="form-control select2" style="width: 100%;">
                                             <option value="">Select Size</option>
                                             @foreach($sizes as $size)
-                                            <option value="{{$size->id}}">{{implode(',',Json_decode($size->size))}}</option>
+                                            <option value="{{$size->id}}" {{$product->size_id == $size->id ? 'selected' : ''}}>{{implode(',',Json_decode($size->size))}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -124,7 +124,7 @@
                                         <select name="unit" class="form-control select2" style="width: 100%;">
                                             <option value="">Select Unit</option>
                                             @foreach($units as $unit)
-                                            <option value="{{$unit->id}}">{{$unit->name}}</option>
+                                            <option value="{{$unit->id}}" {{$product->unit_id == $unit->id ? 'selected' : ''}}>{{$unit->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -135,7 +135,7 @@
                                         <select name="color" class="form-control select2" style="width: 100%;">
                                             <option value="">Select Color</option>
                                             @foreach($colors as $color)
-                                            <option value="{{$color->id}}">{{implode(',', Json_decode($color->color))}}</option>
+                                            <option value="{{$color->id}}" {{$product->color_id == $color->id ? 'selected' : ''}}>{{implode(',', Json_decode($color->color))}}</option>
                                             @endforeach
                                         </select>
                                     </div>

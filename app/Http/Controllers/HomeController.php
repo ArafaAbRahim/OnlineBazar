@@ -90,4 +90,17 @@ class HomeController extends Controller
         return view('frontend.pages.product_by_brand', compact('categories', 'subcategories', 'brands', 'products'));
 
     }
+
+    public function search(Request $request){
+
+        $products = Product::orderBy('id', 'desc')->where('name', 'LIKE', '%'.$request->product.'%');
+        if($request->category != "all") $products->where('cat_id', $request->category);
+        $products = $products->get();
+
+        $categories = Category::where('status', 1)->get();;
+        $subcategories = SubCategory::all();       
+        $brands = Brand::all();        
+
+        return view('frontend.pages.product_by_cat', compact('categories', 'subcategories', 'brands', 'products'));
+    }
 }
